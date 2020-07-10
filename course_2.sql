@@ -1,33 +1,37 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/7/7 15:52:33                            */
+/* Created on:     2020/7/10 13:53:31                           */
 /*==============================================================*/
 
-drop table if exists takes;
-
-drop table if exists teach;
-
-drop table if exists section;
 
 drop table if exists administrators;
 
 drop table if exists course;
 
+drop table if exists department;
+
+drop table if exists section;
+
 drop table if exists student;
+
+drop table if exists takes;
+
+drop table if exists teach;
 
 drop table if exists teacher;
 
 drop table if exists timeslot;
+
+drop table if exists userAuth;
 
 /*==============================================================*/
 /* Table: administrators                                        */
 /*==============================================================*/
 create table administrators
 (
-   adminID              int auto_increment,
+   adminID              varchar(16),
+   user_name            varchar(16) not null,
    name                 varchar(16),
-   user_name               varchar(16) not null,
-   password             varchar(16) not null,
    primary key (user_name)
 );
 
@@ -37,9 +41,20 @@ create table administrators
 create table course
 (
    courseID             varchar(16) not null,
+   deptID               varchar(16),
    coursename           varchar(128),
    description          varchar(1024),
    primary key (courseID)
+);
+
+/*==============================================================*/
+/* Table: department                                            */
+/*==============================================================*/
+create table department
+(
+   deptID               varchar(16) not null,
+   dept_name            varchar(64),
+   primary key (deptID)
 );
 
 /*==============================================================*/
@@ -58,7 +73,6 @@ create table section
    weeks                varchar(1024),
    maxnum               int,
    currentnum           int,
-   remark               varchar(1024),
    primary key (secID, semester, year, timeslotID, courseID)
 );
 
@@ -67,17 +81,18 @@ create table section
 /*==============================================================*/
 create table student
 (
-   studentID            varchar(16) auto_increment,
+   studentID            varchar(16) not null,
    name                 varchar(16),
    user_name            varchar(16) not null,
-   password             varchar(16) not null,
+   deptID               varchar(16),
    phone                varchar(16),
    address              varchar(128),
    gender               bool,
    birthday             date,
-   admisson_date        date,  
-   document_type        varchar(64), 
+   admisson_date        date,
+   document_type        varchar(64),
    country              varchar(64),
+   academic_year        varchar(4),
    primary key (user_name)
 );
 
@@ -86,14 +101,14 @@ create table student
 /*==============================================================*/
 create table takes
 (
-   secID            varchar(16) not null,
-   semester         varchar(8) not null,
-   year             varchar(4) not null,
-   timeslotID       varchar(16) not null,
-   courseID         varchar(16) not null,
-   user_name        varchar(16) not null,
-   grade            numeric(3,0),
-   gpa              numeric(3,2),
+   secID                varchar(16) not null,
+   semester             varchar(8) not null,
+   year                 varchar(4) not null,
+   timeslotID           varchar(16) not null,
+   courseID             varchar(16) not null,
+   user_name            varchar(16) not null,
+   grade                numeric(3,0),
+   gpa                  numeric(3,2),
    primary key (secID, semester, year, timeslotID, courseID, user_name)
 );
 
@@ -102,12 +117,12 @@ create table takes
 /*==============================================================*/
 create table teach
 (
-   secID            varchar(16) not null,
-   semester         varchar(8) not null,
-   year             varchar(4) not null,
-   timeslotID       varchar(16) not null,
-   user_name        varchar(16) not null,
-   courseID         varchar(16) not null,
+   secID                varchar(16) not null,
+   semester             varchar(8) not null,
+   year                 varchar(4) not null,
+   timeslotID           varchar(16) not null,
+   courseID             varchar(16) not null,
+   user_name            varchar(16) not null,
    primary key (secID, semester, year, timeslotID, courseID, user_name)
 );
 
@@ -116,10 +131,10 @@ create table teach
 /*==============================================================*/
 create table teacher
 (
-   teacherID            varchar(16) auto_increment,
+   teacherID            varchar(16),
+   user_name            varchar(16) not null,
+   deptID               varchar(16),
    name                 varchar(16),
-   user_name            varchar(16),
-   password             varchar(16),
    primary key (user_name)
 );
 
@@ -132,14 +147,37 @@ create table timeslot
    day                  varchar(4),
    starttime            time,
    endtime              time,
-   primary key (timeslotID) 
+   primary key (timeslotID)
 );
+
+/*==============================================================*/
+/* Table: userAuth                                              */
+/*==============================================================*/
+create table userAuth
+(
+   user_name            varchar(16) not null,
+   password             varchar(16),
+   type                 varchar(8),
+   primary key (user_name)
+);
+
+alter table administrators add constraint FK_Reference_9 foreign key (user_name)
+      references userAuth (user_name) on delete restrict on update restrict;
+
+alter table course add constraint FK_Reference_10 foreign key (deptID)
+      references department (deptID) on delete restrict on update restrict;
 
 alter table section add constraint FK_Relationship_1 foreign key (courseID)
       references course (courseID) on delete restrict on update restrict;
 
 alter table section add constraint FK_Relationship_2 foreign key (timeslotID)
       references timeslot (timeslotID) on delete restrict on update restrict;
+
+alter table student add constraint FK_Reference_11 foreign key (deptID)
+      references department (deptID) on delete restrict on update restrict;
+
+alter table student add constraint FK_Reference_7 foreign key (user_name)
+      references userAuth (user_name) on delete restrict on update restrict;
 
 alter table takes add constraint FK_takes foreign key (secID, semester, year, timeslotID, courseID)
       references section (secID, semester, year, timeslotID, courseID) on delete restrict on update restrict;
@@ -152,4 +190,10 @@ alter table teach add constraint FK_Reference_6 foreign key (user_name)
 
 alter table teach add constraint FK_teach2 foreign key (secID, semester, year, timeslotID, courseID)
       references section (secID, semester, year, timeslotID, courseID) on delete restrict on update restrict;
+
+alter table teacher add constraint FK_Reference_12 foreign key (deptID)
+      references department (deptID) on delete restrict on update restrict;
+
+alter table teacher add constraint FK_Reference_8 foreign key (user_name)
+      references userAuth (user_name) on delete restrict on update restrict;
 
