@@ -8,7 +8,7 @@
 
    
 
-   ![itr-1](https://github.com/Photinia-Milk/Dolo-Documentation/edit/master/kony128/20-07-10/Font-End/structure-rearrangement/origin.png)
+   ![itr-1](./origin.png)
 
 ### ITR-1
 
