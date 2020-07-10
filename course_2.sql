@@ -81,7 +81,7 @@ create table section
 /*==============================================================*/
 create table student
 (
-   studentID            varchar(16) not null,
+   studentID            varchar(16),
    name                 varchar(16),
    user_name            varchar(16) not null,
    deptID               varchar(16),
@@ -196,4 +196,10 @@ alter table teacher add constraint FK_Reference_12 foreign key (deptID)
 
 alter table teacher add constraint FK_Reference_8 foreign key (user_name)
       references userAuth (user_name) on delete restrict on update restrict;
+			
+alter table student MODIFY studentID VARCHAR(16) auto_increment;
+alter table teacher MODIFY teacherID VARCHAR(16) auto_increment;
+
+alter table admin MODIFY adminID VARCHAR(16) auto_increment;
+
 
