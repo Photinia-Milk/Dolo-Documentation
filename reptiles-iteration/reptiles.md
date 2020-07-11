@@ -1,0 +1,6 @@
+## Reptiles
+ According to the advice from the assistant,I adjusted my method and invoked the new library **selenium**,which situmulates the user to click the website.  
+ I have to say it's very efficient because I don't need to send http requests to the website,which is not apprant in our school website.  
+ So I installed the related software and learned the grammar on **bilibili** in three hours.(it's not that difficult and I don't need to understand all of them.instead,I just have to get the core of the knowledge.)Then, I mainly used xpath to locate the element and analysis what I need.  
+ During my research, I found there were still two problems, which were not easy to work out.The first one was verification code.I found library,tesseract,which can distinguish the words in the piccture.However, I needed to learn new grammer,which was not worth it concerning it's just one tiny step of the work. So, I did the input by myself.The second one was that when I opened the course selection website,I couldn't locate any element on this page.Finally I used 'switch' function to solve this problem.  
+ So far,we can get all the information from the website i.sjtu.edu.cn!
