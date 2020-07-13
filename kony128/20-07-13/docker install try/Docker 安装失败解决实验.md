@@ -152,7 +152,9 @@ FOR /f "tokens=*" %i IN ('docker-machine env HypervDefault') DO @%i
 
 ![docker](Docker%20%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E5%AE%9E%E9%AA%8C.assets/docker.png)**[timelog] 16点05分**
 
+## 其他工作：教组内成员安装docker
 
+![image-20200713181402610](Docker%20%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E5%AE%9E%E9%AA%8C.assets/image-20200713181402610.png)![image-20200713181408947](Docker%20%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E5%AE%9E%E9%AA%8C.assets/image-20200713181408947.png)
 
 
 
