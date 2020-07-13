@@ -146,9 +146,11 @@ FOR /f "tokens=*" %i IN ('docker-machine env HypervDefault') DO @%i
 
 **[timelog] 15点52分**
 
+## 最终效果：跑demo成功
 
 
 
+![docker](Docker%20%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E5%AE%9E%E9%AA%8C.assets/docker.png)**[timelog] 16点05分**
 
 
 
