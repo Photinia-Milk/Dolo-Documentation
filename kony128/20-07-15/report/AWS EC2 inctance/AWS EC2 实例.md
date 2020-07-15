@@ -37,3 +37,29 @@ https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-security-groups.ht
 ### 【AWS】如何彻底清除EC2实例
 
 https://www.jianshu.com/p/e0647967b10d
+
+### 在更改 EC2 Linux 实例的实例类型之前，我需要采取哪些步骤？
+
+https://aws.amazon.com/cn/premiumsupport/knowledge-center/resize-instance/
+
+### EC2增加 CPU 或内存资源
+
+https://docs.github.com/cn/enterprise/2.17/admin/installation/increasing-cpu-or-memory-resources
+
+## 连接方法
+
+![image-20200715105912801](AWS%20EC2%20%E5%AE%9E%E4%BE%8B.assets/image-20200715105912801.png)
+
+拿到pem（很重要，一定需要）
+
+![image-20200715105941830](AWS%20EC2%20%E5%AE%9E%E4%BE%8B.assets/image-20200715105941830.png)
+
+配置好主机和端口号
+
+![image-20200715110010623](AWS%20EC2%20%E5%AE%9E%E4%BE%8B.assets/image-20200715110010623.png)
+
+如果是ubuntu系统，一般用户名就是ubutnu
+
+方法记得选择Public Key
+
+用户密钥就选择刚才下载下来的.pem文件
