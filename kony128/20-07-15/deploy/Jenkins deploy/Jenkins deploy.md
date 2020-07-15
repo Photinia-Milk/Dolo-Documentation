@@ -446,3 +446,15 @@ ec52f4e35cea4935bfe306bef3918b86
 裂开了
 
 [timelog]16点41分
+
+![image-20200715164638027](Jenkins%20deploy.assets/image-20200715164638027.png)
+
+再按照这个配置试试看
+
+![image-20200715165044677](Jenkins%20deploy.assets/image-20200715165044677.png)
+
+重启服务后居然直接进来了
+
+赶紧改一下密码为最高级。。
+
+[timelog] 16点51分
