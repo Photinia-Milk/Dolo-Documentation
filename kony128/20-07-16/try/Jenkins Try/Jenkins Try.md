@@ -163,8 +163,105 @@ https://www.cnblogs.com/panzhaohui/p/6306675.html
 
 好像没报错，就不做这个了
 
-#### 尝试8：Maven构建尝试
+#### 尝试8：Maven构建尝试 - 取消
+
+不用Jenkins Maven了，改用Pipeline
+
+#### 尝试9：post steps - 取消
+
+不用Jenkins Maven了，改用Pipeline
+
+[timelog]21点16分
+
+#### 尝试10：Pipeline 自动拉取 Github代码
+
+##### How to Add Github Webhooks to a Jenkins Pipeline
+
+https://medium.com/better-programming/how-too-add-github-webhook-to-a-jenkins-pipeline-62b0be84e006
+
+刚才去做了一下后端debug，然后按照上文做了部署
+
+![image-20200716220654380](Jenkins%20Try.assets/image-20200716220654380.png)
+
+正好测试一下流水线有没有问题
+
+结果发现push了过后没有触发
+
+是什么原因呢？
+
+排查了一下，是因为我想弄一个参数化配置，本来用tag的，默认版本为latest，结果它只能默认拉取latest，那就很烦
+
+我们把参数化配置取消掉
+
+![image-20200716222050732](Jenkins%20Try.assets/image-20200716222050732.png)
+
+再做一下push
+
+[timelog]22点08分
+
+成功触发流水线
+
+![image-20200716220833756](Jenkins%20Try.assets/image-20200716220833756.png)
+
+但是一直在build，没有停，手动停止
+
+![image-20200716221653619](Jenkins%20Try.assets/image-20200716221653619.png)
+
+不知道为啥，仔细看看执行流程
+
+Start卡了半天
+
+![image-20200716221859110](Jenkins%20Try.assets/image-20200716221859110.png)
 
 
 
-#### 尝试9：post steps
+![image-20200716221926792](Jenkins%20Try.assets/image-20200716221926792.png)
+
+看一看到底是啥问题
+
+发现用户凭据是空的，赶紧填一下
+
+![image-20200716222127466](Jenkins%20Try.assets/image-20200716222127466.png)
+
+应该是需要用户凭证
+
+![image-20200716221803375](Jenkins%20Try.assets/image-20200716221803375.png)
+
+![image-20200716222158453](Jenkins%20Try.assets/image-20200716222158453.png)
+
+等待运行
+
+还是失败，尝试找原因，没找到，期间给兴宇解决问题，service 单元测试居然写到现在都没写好
+
+[timelog]22点40分
+
+我实在裂开了，为什么我不去看jenkins官方文档呢？
+
+#### 官网：Pipeline
+
+https://www.jenkins.io/doc/book/pipeline/
+
+[timelog]23点39分
+
+![image-20200716233917184](Jenkins%20Try.assets/image-20200716233917184.png)
+
+2  ：  archiveArtifacts捕获与包含模式（** / target / *.jar）匹配而构建的文件，并将其保存到Jenkins主文件中，以供以后检索。
+
+![image-20200716234544116](Jenkins%20Try.assets/image-20200716234544116.png)
+
+Credential的示例，在这里居然用的AWS
+
+![image-20200716234604057](Jenkins%20Try.assets/image-20200716234604057.png)
+
+![image-20200716234612563](Jenkins%20Try.assets/image-20200716234612563.png)
+
+![image-20200716234645854](Jenkins%20Try.assets/image-20200716234645854.png)
+
+blabla看到最后，官网还是啥都没教，或者教的版本不对，裂开了
+
+换一个
+
+#### Continuous Integration with Spring Boot, Maven, GitHub, and Jenkins
+
+https://www.geekyhacker.com/2017/10/12/continuous-integration-with-spring-boot-maven-github-and-jenkins/
+
