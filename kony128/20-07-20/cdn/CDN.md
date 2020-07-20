@@ -42,3 +42,16 @@ kony
 
 
 
+![image-20200720143355525](CDN.assets/image-20200720143355525.png)
+
+ok，成功了
+
+[timelog]14点34分
+
+### Amazon CloudFront
+
+[timelog]14点40分
+
+在做https证书的时候，猛然发现可以用Amazon自带的CDN加速去研究一下
+
+https://aws.amazon.com/cn/cloudfront/
