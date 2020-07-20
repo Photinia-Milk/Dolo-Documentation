@@ -55,3 +55,15 @@ ok，成功了
 在做https证书的时候，猛然发现可以用Amazon自带的CDN加速去研究一下
 
 https://aws.amazon.com/cn/cloudfront/
+
+![image-20200720144219555](CDN.assets/image-20200720144219555.png)
+
+来吧，试试看这个
+
+![image-20200720144645933](CDN.assets/image-20200720144645933.png)
+
+不行，这个需要一个S3实例，这下麻烦了，S3实例我还没弄过
+
+我们先去看看域名吧
+
+[timelog]14点47分
