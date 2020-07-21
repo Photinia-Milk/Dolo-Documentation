@@ -6,17 +6,15 @@
 
 drop table if exists administrators;
 
-drop table if exists course;
-
-drop table if exists department;
-
-drop table if exists section;
-
-drop table if exists student;
+drop table if exists teach;
 
 drop table if exists takes;
 
-drop table if exists teach;
+drop table if exists section;
+
+drop table if exists course;
+
+drop table if exists student;
 
 drop table if exists teacher;
 
@@ -24,12 +22,13 @@ drop table if exists timeslot;
 
 drop table if exists userAuth;
 
+drop table if exists department;
+
 /*==============================================================*/
 /* Table: administrators                                        */
 /*==============================================================*/
 create table administrators
 (
-   adminID              varchar(16),
    user_name            varchar(16) not null,
    name                 varchar(16),
    primary key (user_name)
@@ -69,7 +68,7 @@ create table section
    courseID             varchar(16) not null,
    building             varchar(32),
    roomnumber           varchar(4),
-   credits              int,
+   credits              numeric(2,1),
    weeks                varchar(1024),
    maxnum               int,
    currentnum           int,
@@ -81,7 +80,6 @@ create table section
 /*==============================================================*/
 create table student
 (
-   studentID            varchar(16),
    name                 varchar(16),
    user_name            varchar(16) not null,
    deptID               varchar(16),
@@ -131,7 +129,6 @@ create table teach
 /*==============================================================*/
 create table teacher
 (
-   teacherID            varchar(16),
    user_name            varchar(16) not null,
    deptID               varchar(16),
    name                 varchar(16),
@@ -196,10 +193,13 @@ alter table teacher add constraint FK_Reference_12 foreign key (deptID)
 
 alter table teacher add constraint FK_Reference_8 foreign key (user_name)
       references userAuth (user_name) on delete restrict on update restrict;
-			
-alter table student MODIFY studentID VARCHAR(16) auto_increment;
-alter table teacher MODIFY teacherID VARCHAR(16) auto_increment;
 
-alter table admin MODIFY adminID VARCHAR(16) auto_increment;
+insert into userauth VALUES ('liujinke','123456','student');
+
+insert into department VALUES ('123','se');
+
+insert into student VALUES ('liu','liujinke','123','1234567','dongchuan rd',true,NULL,NULL,NULL,NULL,NULL);
+
+
 
 
