@@ -27,19 +27,21 @@
 ## 学生
 
 ### 获取全部课程接口
-**GET** /api/student/course_avilable
+**GET** /api/student/course_valid
 * 请求参数：
-  * None
+  * startIndex: **Interger**
+  * pageSize: **Interger**
 * 返回结果：
-  * List\<Section\>
+  * **List\<Map\<String, Object\>\>**
 
 ### 按课程名模糊搜索接口
 **GET** /api/student/course_search
 * 请求参数：
   * searchString **String**
-  * start: **int** # 分页起始记录
-  * end: **int** # 分页结束记录
+  * startIndex: **Interger**
+  * pageSize: **Interger**
 * 返回结果：
+  * **List\<Map\<String, Object\>\>**
 
 ### 
 **POST** /api/student/course_select
@@ -52,13 +54,15 @@
        &emsp;year **String**
        &emsp;building **String**
        &emsp;roomnumber **String**
+       &emsp;credits **double**
+       &emsp;weeks **String**
        &emsp;timeslotID  **String**
-       &emsp;timeslot **TimeSlot**{ &emsp;timeslotID **String**,&emsp;day **String**, &emsp;startTime **Time**,&emsp;endTime **Time**}
        &emsp;courseID **String**
-       &emsp;course **Course**{&emsp;courseID **String**, &emsp;deptID **String**, &emsp;courseName **String**, &emsp;description **String**}
+       &emsp;maxnum **int**
+       &emsp;currentnum **int**
    }
 * 返回结果：
-  * 类型：int
+  * 类型：**int**
   * 成功：0
   * 失败：(插入takes成功但更新section失败：1；反之为2)
 
@@ -73,13 +77,15 @@
        &emsp;year **String**
        &emsp;building **String**
        &emsp;roomnumber **String**
+       &emsp;credits **double**
+       &emsp;weeks **String**
        &emsp;timeslotID  **String**
-       &emsp;timeslot **TimeSlot**{ &emsp;timeslotID **String**,&emsp;day **String**, &emsp;startTime **Time**,&emsp;endTime **Time**}
        &emsp;courseID **String**
-       &emsp;course **Course**{&emsp;courseID **String**, &emsp;deptID **String**, &emsp;courseName **String**, &emsp;description **String**}
+       &emsp;maxnum **int**
+       &emsp;currentnum **int**
    }
 * 返回结果：
-  * 类型：int
+  * 类型：**int**
   * 成功：0
   * 失败：(删除takes成功但更新section失败：1；反之为2)
 
@@ -87,10 +93,12 @@
 **POST** /api/student/course_list
 * 请求参数：
   * user_name **String**
+  * startIndex **Interger**
+  * pageSize: **Interger**
 * 返回结果：
-  * 
+  * **List\<Map\<String, Object\>\>**
 
-### 
+<!-- ### 
 **POST** /api/student
 * 请求参数：
-* 返回结果：
+* 返回结果： -->
