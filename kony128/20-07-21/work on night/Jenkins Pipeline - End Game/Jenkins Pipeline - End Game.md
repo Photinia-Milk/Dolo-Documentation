@@ -538,6 +538,74 @@ https://stackoverflow.com/questions/48910876/error-eacces-permission-denied-acce
 
 那接下来就应该改一下权限了
 
+### Jenkins反向代理 - 没有优雅的解决方案
+
+![image-20200721162006734](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721162006734.png)
+
+如下配置后，试试看dolo.club/jenkins
+
+
+
+![image-20200721161948324](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721161948324.png)
+
+
+
+![image-20200721162303390](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721162303390.png)
+
+好像结尾忘了加斜杠
+
+![image-20200721162320299](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721162320299.png)
+
+https://www.jianshu.com/p/b010c9302cd0
+
+![image-20200721162552470](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721162552470.png)
+
+不知为何，直接跳到了dashbord，而且内容很奇怪
+
+
+
+![image-20200721162547337](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721162547337.png)
+
+这样改试试
+
+![image-20200721162656621](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721162656621.png)
+
+不得行
+
+怎么会没图片啥的呢
+
+![image-20200721162746874](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721162746874.png)
+
+在我这样改的时候又正常了
+
+![image-20200721163436169](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721163436169.png)
+
+有人说要这样做
+
+不起作用
+
+再查一下，发现有这个问题
+
+https://blog.csdn.net/wuletaotao/article/details/78600368?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight
+
+![image-20200721163724450](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721163724450.png)
+
+好像是因为代理冲突
+
+照他这么写，还是没用
+
+#### [Can't get nginx reverse proxy to load css/images of web application](https://stackoverflow.com/questions/57877915/cant-get-nginx-reverse-proxy-to-load-css-images-of-web-application)
+
+https://stackoverflow.com/questions/57877915/cant-get-nginx-reverse-proxy-to-load-css-images-of-web-application
+
+![image-20200721164233884](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721164233884.png)
+
+![image-20200721164242434](Jenkins%20Pipeline%20-%20End%20Game.assets/image-20200721164242434.png)
+
+我大概知道为什么了
+
+哎哟先不管了，先去学kubernetes
+
 ### Nginx + vue容器化
 
 #### [手把手系列之]Docker 部署 vue 项目
@@ -548,3 +616,4 @@ https://juejin.im/post/5cce4b1cf265da0373719819#heading-9
 
 像这样配置一下nginx.conf
 
+[]
