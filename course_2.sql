@@ -194,12 +194,4 @@ alter table teacher add constraint FK_Reference_12 foreign key (deptID)
 alter table teacher add constraint FK_Reference_8 foreign key (user_name)
       references userAuth (user_name) on delete restrict on update restrict;
 
-insert into userauth VALUES ('liujinke','123456','student');
-
-insert into department VALUES ('123','se');
-
-insert into student VALUES ('liu','liujinke','123','1234567','dongchuan rd',true,NULL,NULL,NULL,NULL,NULL);
-
-
-
 
