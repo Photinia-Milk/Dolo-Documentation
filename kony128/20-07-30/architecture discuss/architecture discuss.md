@@ -8,7 +8,7 @@
 
 已经讲完了好久才想起来写
 
-![Annotation 2020-07-30 180806](architecture%20disguss.assets/Annotation%202020-07-30%20180806.png)
+![Annotation 2020-07-30 180806](architecture%20discuss.assets/Annotation%202020-07-30%20180806.png)
 
 嗯。。大概讲了些学到的比较杂的东西
 
