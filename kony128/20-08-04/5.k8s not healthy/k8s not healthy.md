@@ -82,3 +82,60 @@ https://github.com/Azure/AKS/issues/173
 
 时间不早了，先吃饭，晚上再弄
 
+
+
+### 检查localhost指向
+
+![image-20200804165847486](k8s%20not%20healthy.assets/image-20200804165847486.png)
+
+sudo vim /etc/hosts
+
+在我的系统里，127.0.0.1是localhost没错
+
+奇怪了
+
+
+
+### 检查所有deployment、service、pod情况
+
+![image-20200804170009159](k8s%20not%20healthy.assets/image-20200804170009159.png)
+
+这是所有的deployment状态
+
+
+
+![image-20200804170031831](k8s%20not%20healthy.assets/image-20200804170031831.png)
+
+所有的service状态
+
+
+
+![image-20200804170050920](k8s%20not%20healthy.assets/image-20200804170050920.png)
+
+所有的pods状态
+
+
+
+嗯。。怪了
+
+看着没啥问题
+
+### 检查端口号占用
+
+Linux 查看端口占用情况
+
+https://www.runoob.com/w3cnote/linux-check-port-usage.html
+
+
+
+嗯？！这些端口号没人用？！
+
+![image-20200804170333535](k8s%20not%20healthy.assets/image-20200804170333535.png)
+
+
+
+### 思考原因
+
+1. 服务没有启动上
+2. 服务启动上了，配置文件里写得不对（问题出在kubeadm）
+
