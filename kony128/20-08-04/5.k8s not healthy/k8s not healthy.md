@@ -137,5 +137,6 @@ https://www.runoob.com/w3cnote/linux-check-port-usage.html
 ### 思考原因
 
 1. 服务没有启动上
-2. 服务启动上了，配置文件里写得不对（问题出在kubeadm）
+2. 服务启动上了，配置文件里写得不对（问题出在多次kubeadm reset后又kubeadm init）
+3. etcd里记录的端口不对（之前kubeadm reset时有提示etcd关闭失败）
 
